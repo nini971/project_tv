@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Project_RH_TV</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="techvalley_rh">Tech Valley RH</string>
+    <string name="cv_status">CV status</string>
+    <string name="name">Name</string>
+    <string name="qualif_state">Qualification state</string>
+    <string name="attachment_city">Attachment city</string>
+    <string name="availability">Availability</string>
+    <string name="profile">Profile title</string>
+    <string name="daily_rate">Daily rate</string>
+    <string name="action">Action</string>
+    <string name="sort_ascending">Sort Ascending</string>
+    <string name="sort_descending">Sort Descending</string>
+</resources>
