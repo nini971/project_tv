@@ -1,7 +1,6 @@
 package com.techvalley.android.project_rh_tv.tableview;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,6 +27,8 @@ import com.techvalley.android.project_rh_tv.tableview.model.RowHeader;
 public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHeader, Cell> {
 
     private static final int CVSTATUS_COLUMN_POSITION = 0;
+    private static int width;
+    private static int height;
     private static final String LOG_TAG = TableViewAdapter.class.getSimpleName();
 
     public TableViewAdapter(Context p_jContext) {
@@ -78,18 +79,27 @@ public class TableViewAdapter extends AbstractTableAdapter<ColumnHeader, RowHead
 
         // Get the holder to update cell item text
         CellViewHolder viewHolder = (CellViewHolder) holder;
+        // si on est sur la colonne de CV_status
         if(p_nXPosition == CVSTATUS_COLUMN_POSITION){
             viewHolder.cell_textview.setVisibility(View.GONE);
-            if(cell.getData() != null){
-                viewHolder.cell_icon.setImageResource(R.drawable.ic_done_black_24dp);
-                viewHolder.cell_icon.getDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
+            viewHolder.cell_icon.setVisibility(View.VISIBLE);
+            // si il y a un cv alors on affiche l'icon associer
+            if(String.valueOf(cell.getData()).length() > 0){
+                viewHolder.cell_icon.setImageResource(R.drawable.ic_assignment_turned_in_black_24dp);
+                viewHolder.cell_icon.getDrawable().setColorFilter(viewHolder.cell_icon.getContext().getResources().getColor(R.color.green), PorterDuff.Mode.SRC_IN);
             } else {
-                viewHolder.cell_icon.setImageResource(R.drawable.ic_clear_black_24dp);
-                viewHolder.cell_icon.getDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+                viewHolder.cell_icon.setImageResource(R.drawable.ic_assignment_late_black_24dp);
+                viewHolder.cell_icon.getDrawable().setColorFilter(viewHolder.cell_icon.getContext().getResources().getColor(R.color.red), PorterDuff.Mode.SRC_IN);
             }
         } else{
+            viewHolder.cell_icon.setVisibility(View.GONE);
             viewHolder.cell_textview.setVisibility(View.VISIBLE);
-            viewHolder.cell_textview.setText(String.valueOf(cell.getData()));
+            // si la donnee est null alors on affiche N/A
+            if (cell.getData() != null) {
+                viewHolder.cell_textview.setText(String.valueOf(cell.getData()));
+            } else {
+                viewHolder.cell_textview.setText("N/A");
+            }
 
         }
 

@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     //======================================
 
     private void launchNextActivity(){
-        Intent intent = new Intent(this, ConsultingTestActivity.class);
+        Intent intent = new Intent(this, TableViewConsultantActivity.class);
         startActivity(intent);
     }
 
